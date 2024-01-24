@@ -1,9 +1,7 @@
 class Solution(object):
     def singleNumber(self, nums):
-        counts = Counter(nums)
-        
-        for num, count in counts.items():
-            if count == 1:
-                return num
+        result = 0
+        for num in nums:
+            result ^= num
+        return result
             
-        return None
