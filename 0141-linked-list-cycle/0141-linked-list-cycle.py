@@ -9,16 +9,13 @@ class Solution(object):
         if not head or not head.next:
             return False
         
-        behind = head
-        ahead = head.next
+        seen = set()
+        current = head
         
-        while ahead and ahead.next:
-            if behind == ahead:
+        while current:
+            if current in seen:
                 return True
-            behind = behind.next
-            ahead = ahead.next.next
-            
+            seen.add(current)
+            current = current.next
         return False
-        
-        
         
