@@ -4,7 +4,7 @@ class Solution(object):
         lowprice = float('inf')
         
         for stock in prices:
-            if stock < lowprice:
+            if stock< lowprice:
                 lowprice = stock
             else:
                 maxprofit = max(maxprofit, stock - lowprice)
