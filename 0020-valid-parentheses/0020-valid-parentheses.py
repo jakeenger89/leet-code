@@ -1,16 +1,20 @@
 class Solution(object):
-    
     def isValid(self, s):
+        mapping = {
+            ')': '(',
+            '}': '{',
+            ']': '['
+        }
         stack = []
-        character = {')': '(', '}': '{', ']': '['}
-
+        
         for char in s:
-            if char in character.values():
-                stack.append(char)
-            elif char in character:
-                if not stack or stack.pop() != character[char]:
+            if char in mapping:
+                curr = stack.pop() if stack else 'happyman'
+                if mapping[char] != curr:
                     return False
             else:
-                return False
-
+                stack.append(char)
+        
         return not stack
+        
+        
